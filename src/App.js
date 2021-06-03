@@ -1,23 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
+import {Router} from 'react-router-dom';
+import {Route, Switch} from 'react-router';
+import {createBrowserHistory} from 'history';
+import Menu from './components/Menu';
+import Content from './components/Content';
+import Title from './components/Title';
+import Device from './components/Device';
+import Devices from './components/Devices';
+import { Col, Row } from 'reactstrap';
+
+
+const history = createBrowserHistory();
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router history={history}>
+        <Row>
+          <Menu />
+        </Row>
+        <Row>
+          <Col>
+            <Devices />
+          </Col>
+          <Col>
+            <Content>
+              <Switch>
+                <Route path="/" component={Title} />
+                <Route path="/device/:id" component={Device} />
+              </Switch>
+            </Content>
+          </Col>
+        </Row>
+      </Router>
     </div>
   );
 }
