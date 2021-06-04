@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, } from 'reactstrap';
 
 const Menu = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -14,15 +14,9 @@ const Menu = () => {
                     <NavItem>
                         <NavLink tag={Link} to="/about">About</NavLink>
                     </NavItem>
-                    <NavItem>
-                        <NavLink  tag={Link} to="/figures/create">New Figures</NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink  tag={Link} to="/productions/create">New Productions</NavLink>
-                    </NavItem>
                 </Nav>
             </Collapse>
-        </Navbar>
+        </Navbar>        
     )
 }
 

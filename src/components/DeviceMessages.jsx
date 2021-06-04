@@ -6,15 +6,24 @@ import { API, GroupToken } from '../configuration/API';
 import { Alert, Card, CardBody, CardTitle, CardSubtitle, CardText } from 'reactstrap';
 
 const Device = () => {
-    const {id, mid} = useParams();
+    const {id} = useParams();
     const [deviceData, setDeviceData] = useState(null);
     const [isLoading, setIsloading] = useState(false);
     const [error, setError] = useState(false);
-    const [message, setMessage] = useState(null);
+    const [device, setDevice] = useState([]);
     const fetchData = () => {
         setIsloading(true);
         setError(false);
-        axios.get(API + "messages?device_id=" + id + "&limit=1&offset=0&sort_field=created_at&sort_order=desc", {
+        axios.get(API + "device/" + id,{
+            headers: {
+            "Authorization": `Bearer ${GroupToken}`
+            }
+        })
+        .then(response=>{
+            setDevice(response.data)
+            console.log(device);
+        })
+        axios.get(API + "messages?device_id=" + id + "&sort_field=created_at&sort_order=desc", {
             headers: {
                 "Authorization": `Bearer ${GroupToken}`
             }
@@ -40,8 +49,8 @@ const Device = () => {
     }
     useEffect(()=>{
         fetchData();
-        //console.log(deviceData)
-    }, [id, mid]);
+        console.log(deviceData)
+    }, [id]);
     console.log(deviceData);
     if (isLoading){
         return <TraceSpinner frontColor="#0012c7" />
@@ -60,19 +69,7 @@ const Device = () => {
     }
     else if (deviceData) {
         return (
-            deviceData.map((item)=>(
-                    <Card >
-                    <CardTitle tag="h2">
-                        {item.name}
-                    </CardTitle>
-                    <CardBody>
-                        <CardText>Teplota: {item.data.sensor.hygrometer.temperature}</CardText>
-                        <CardText>Vlhkost: {item.data.sensor.hygrometer.humidity}</CardText>
-                        
-                    </CardBody>
-                </Card>
-            ))
-            
+            <p>ahoj</p>
         )
     }
     else {

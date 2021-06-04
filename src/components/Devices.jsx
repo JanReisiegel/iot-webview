@@ -46,7 +46,7 @@ const Devices = () => {
                     {
                         devices.map((item) => (
                             <NavItem>
-                                <NavLink tag={Link} to={"/device" + item.id}>
+                                <NavLink tag={Link} to={"/device/" + item.id}>
                                     {item.name}
                                 </NavLink>
                             </NavItem>
