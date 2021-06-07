@@ -7,7 +7,7 @@ const Menu = () => {
     const toggle = () => setIsOpen(!isOpen);
     return (
         <Navbar color="primary" dark expand="md" fixed="top">
-            <NavbarBrand navbar style={{marginLeft: '12rem'}} tag={Link} to="/">Figures</NavbarBrand>
+            <NavbarBrand navbar style={{marginLeft: '12rem'}} tag={Link} to="/">Home</NavbarBrand>
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
                 <Nav className="mr-auto" navbar >

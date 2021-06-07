@@ -65,10 +65,15 @@ const Device = () => {
                     <CardTitle tag="h2">
                         {item.name}
                     </CardTitle>
+                    <CardTitle tag="p">{item.created_at}</CardTitle>
                     <CardBody>
-                        <CardText>Teplota: {item.data.sensor.hygrometer.temperature}</CardText>
-                        <CardText>Vlhkost: {item.data.sensor.hygrometer.humidity}</CardText>
-                        
+
+                        <CardText>Teplota 1: {item.data.sensor.hygrometer.temperature}</CardText>
+                        <CardText>Vlhkost 1: {item.data.sensor.hygrometer.humidity}</CardText>
+                        <CardTitle tag="h3">MachineProbe</CardTitle>
+                        <CardText>Teplota 2: {(item.data.sensor.external.machine_probe)[0].hygrometer.temperature}</CardText>
+                        <CardText>Vlhkost 2: {(item.data.sensor.external.machine_probe)[0].hygrometer.humidity}</CardText>
+                        <CardText>Světelnost: {(item.data.sensor.external.machine_probe)[0].lux_meter.illuminance}</CardText>
                     </CardBody>
                 </Card>
             ))

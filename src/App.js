@@ -22,21 +22,21 @@ function App() {
           <Menu />
         </Row>
         <Row style={{marginTop: '5rem'}}>
-          <Col xs="1" />
+          <Col xs="2" />
           <Col md="2">
             <Devices />
           </Col>
-          <Col lg="8">
+          <Col lg="6">
             <Content>
               <Switch>
-
-                <Route path="/about" component={About} />
                 <Route path="/device/:id" component={Device} />
+                <Route path="/device/:id/messages" component={DeviceMessages} />
+                <Route path="/about" component={About} />
                 <Route path="/" component={Title} />
               </Switch>
             </Content>
           </Col>
-          <Col xs="1" />
+          <Col xs="2" />
         </Row>
       </Router>
     </div>
